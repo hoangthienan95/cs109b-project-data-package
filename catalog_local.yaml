@@ -1,0 +1,80 @@
+#cat = intake.open_catalog("catalog.yaml")
+metadata:
+    hierarchical_catalog: true
+
+#df = cat.shared.original.airpred_clean.read().head()
+shared:
+    original:
+      airpred_clean:
+        driver: csv
+        args:
+          urlpath: '{{ CATALOG_DIR }}/shared/airpred_clean.csv'
+          csv_kwargs: 
+            dtype:
+                REANALYSIS_snowc_DailyMean: "float64" #missing
+        metadata: {}
+
+#df = cat.example.southern_rockies.read().head()
+example:
+    southern_rockies:
+        description: Full dataset. This will have 4 columns. Look at urlpath. Copied from 'https://github.com/intake/intake-examples/blob/master/precip/catalog.yml'
+        driver: csv
+        args:
+          urlpath: '{{ CATALOG_DIR }}/example_data/SRLCC_{emissions}_Precip_{model}.csv'
+          csv_kwargs:
+            skiprows: 3
+            names: ['time', 'precip']
+            parse_dates: ['time']
+        metadata:
+          origin: https://www.sciencebase.gov/catalog/item/511e740de4b071e86a19a524
+          fields:
+            precip:
+              label: Precipitation
+              unit: mean mm/day
+
+#df = cat.example.southern_rockies_modified.read().head()
+#df.shape
+#df = cat.example.southern_rockies_modified(emissions="a1b").read().shape
+#df = cat.example.southern_rockies_modified(emissions="a1b", model="PCM-NCAR").read().shape
+    southern_rockies_modified:
+        description: Dataset where you can select individual parts. This will only have 2 columns. Compare urlpath of `southern_rockies` and `southern_rockies_modified`
+        driver: csv
+        parameters:
+            model:
+                description: model # human-readable text for what this parameter means
+                type: str # optional, one of bool, str, int, float, list[str], list[int], list[float], datetime
+                default: '*' # optional, value to assume if user does not override
+                allowed: ["*","ECHAM5-MPI", "MIROC3.2(medres)", "PCM-NCAR"] # optional, list of values that are OK, for validation
+            emissions:
+                description: emissions
+                type: str
+                default: '*'
+                allowed: ["*","a1b", "a2", "b1"]
+        args:
+          urlpath: '{{ CATALOG_DIR }}/example_data/SRLCC_{{emissions}}_Precip_{{model}}.csv'
+          csv_kwargs:
+            skiprows: 3
+            names: ['time', 'precip']
+            parse_dates: ['time']
+        metadata:
+          origin: https://www.sciencebase.gov/catalog/item/511e740de4b071e86a19a524
+          fields:
+            precip:
+              label: Precipitation
+              unit: mean mm/day
+    
+    southern_rockies_glob:
+        description: Glob with no param name
+        driver: csv
+        args:
+          urlpath: '{{ CATALOG_DIR }}/example_data/SRLCC_*_Precip_*.csv'
+          csv_kwargs:
+            skiprows: 3
+            names: ['time', 'precip']
+            parse_dates: ['time']
+        metadata:
+          origin: https://www.sciencebase.gov/catalog/item/511e740de4b071e86a19a524
+          fields:
+            precip:
+              label: Precipitation
+              unit: mean mm/day
