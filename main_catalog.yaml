@@ -8,7 +8,7 @@ shared:
         driver: csv
         direct_access: allow
         args:
-          urlpath: '{{ CATALOG_DIR }}/shared/airpred_clean.csv'
+          urlpath: '{{ CATALOG_DIR }}shared/airpred_clean.csv'
           storage_options:
             org: hoangthienan95
             repo: cs109b-project-data-package     
@@ -23,7 +23,7 @@ example:
         description: Full dataset. This will have 4 columns. Look at urlpath. Copied from 'https://github.com/intake/intake-examples/blob/master/precip/catalog.yml'
         driver: csv
         args:
-          urlpath: '{{ CATALOG_DIR }}/example_data/SRLCC_{emissions}_Precip_{model}.csv'
+          urlpath: '{{ CATALOG_DIR }}example_data/SRLCC_{emissions}_Precip_{model}.csv'
           csv_kwargs:
             skiprows: 3
             names: ['time', 'precip']
@@ -54,7 +54,7 @@ example:
                 default: '*'
                 allowed: ["*","a1b", "a2", "b1"]
         args:
-          urlpath: '{{ CATALOG_DIR }}/example_data/SRLCC_{{emissions}}_Precip_{{model}}.csv'
+          urlpath: '{{ CATALOG_DIR }}example_data/SRLCC_{{emissions}}_Precip_{{model}}.csv'
           csv_kwargs:
             skiprows: 3
             names: ['time', 'precip']
@@ -70,7 +70,7 @@ example:
         description: Glob with no param name
         driver: csv
         args:
-          urlpath: '{{ CATALOG_DIR }}/example_data/SRLCC_*_Precip_*.csv'
+          urlpath: '{{ CATALOG_DIR }}example_data/SRLCC_*_Precip_*.csv'
           csv_kwargs:
             skiprows: 3
             names: ['time', 'precip']
