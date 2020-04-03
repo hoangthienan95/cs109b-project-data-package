@@ -2,7 +2,6 @@
 metadata:
     hierarchical_catalog: true
     storage_var:
-      storage_options:
         org: hoangthienan95
         repo: cs109b-project-data-package     
 #df = cat.shared.original.airpred_clean.read().head()
@@ -26,7 +25,7 @@ shared:
         direct_access: allow
         args:
           urlpath: '{{ CATALOG_DIR }}shared/airpred_clean.csv'
-          {{storage_var}}
+          storage_options: {{storage_var}}
           csv_kwargs: 
             dtype:
                 REANALYSIS_snowc_DailyMean: "float64" #missing
