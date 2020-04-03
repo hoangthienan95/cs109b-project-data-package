@@ -10,7 +10,6 @@ main_catalog:
     storage_options:
       org: hoangthienan95
       repo: cs109b-project-data-package
-  metadata:
-    raw_url: https://raw.githubusercontent.com/hoangthienan95/cs109b-project-data-package/master/data_package/cs109b_data_MMA/nested_catalog.yaml
+  metadata: {}
   #https://github.com/hoangthienan95/cs109b-project-data-package/blob/master/main_catalog.yaml
   #https://github.com/hoangthienan95/cs109b-project-data-package/blob/master/shared/airpred_clean.csv

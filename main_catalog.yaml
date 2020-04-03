@@ -20,16 +20,16 @@ shared:
                 REANALYSIS_snowc_DailyMean: "float64" #missing
         metadata: {}
       
-      airpred_clean_test_templating:
-        driver: csv
-        direct_access: allow
-        args:
-          urlpath: '{{ CATALOG_DIR }}shared/airpred_clean.csv'
-          storage_options: {{storage_var}}
-          csv_kwargs: 
-            dtype:
-                REANALYSIS_snowc_DailyMean: "float64" #missing
-        metadata: {}
+      # airpred_clean_test_templating:
+      #   driver: csv
+      #   direct_access: allow
+      #   args:
+      #     urlpath: '{{ CATALOG_DIR }}shared/airpred_clean.csv'
+      #     storage_options: {{storage_var}}
+      #     csv_kwargs: 
+      #       dtype:
+      #           REANALYSIS_snowc_DailyMean: "float64" #missing
+      #   metadata: {}
 
 #df = cat.example.southern_rockies.read().head()
 example:
