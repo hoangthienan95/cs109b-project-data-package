@@ -7,8 +7,19 @@ shared:
     original:
       airpred_clean:
         driver: csv
+        direct_access: allow
         args:
           urlpath: '{{ CATALOG_DIR }}/shared/airpred_clean.csv'
+          csv_kwargs: 
+            dtype:
+                REANALYSIS_snowc_DailyMean: "float64" #missing
+        metadata: {}
+
+      airpred_clean_full_path:
+        driver: csv
+        direct_access: allow
+        args:
+          urlpath: 'https://raw.githubusercontent.com/hoangthienan95/cs109b-project-data-package/master/shared/airpred_clean.csv'
           csv_kwargs: 
             dtype:
                 REANALYSIS_snowc_DailyMean: "float64" #missing
