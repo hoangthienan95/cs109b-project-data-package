@@ -1,7 +1,6 @@
 #cat = intake.open_catalog("catalog.yaml")
 metadata:
     hierarchical_catalog: true
-
 #df = cat.shared.original.airpred_clean.read().head()
 shared:
     original:
@@ -11,8 +10,8 @@ shared:
         args:
           urlpath: '{{ CATALOG_DIR }}/shared/airpred_clean.csv'
           storage_options:
-            headers: 
-              Accept-Encoding: identity            
+            org: hoangthienan95
+            repo: cs109b-project-data-package     
           csv_kwargs: 
             dtype:
                 REANALYSIS_snowc_DailyMean: "float64" #missing
