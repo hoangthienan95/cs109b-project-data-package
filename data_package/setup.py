@@ -3,19 +3,19 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="intake_example_package",
-    version="0.0.1",
+    name="intake_cs109b_data_mma",
+    version="0.0.4",
     description="Data for cs109b group project, Spring2020",
-    py_modules=["intake_example_package"],
+    py_modules=["intake_cs109b_data_mma"],
     packages=find_packages(),
     package_data={"": ["*.yaml"]},
     include_package_data=True,
-    install_requires=["intake"],
+    install_requires=["intake", "intake-nested-yaml-catalog"],
     zip_safe=False,
     entry_points={
         "intake.catalogs": [
-            "sea_cat = intake_example_package:cat",
-            "sea_data = intake_example_package:data",
+            "cs109b = intake_cs109b_data_mma:cat",
+            "airpred_clean = intake_cs109b_data_mma:data",
         ]
     },
 )

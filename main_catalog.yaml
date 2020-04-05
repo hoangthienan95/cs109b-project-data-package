@@ -19,6 +19,16 @@ shared:
             dtype:
                 REANALYSIS_snowc_DailyMean: "float64" #missing
         metadata: {}
+      capital_projects:
+        driver: csv
+        direct_access: allow
+        args:
+          urlpath: '{{ CATALOG_DIR }}shared/Capital_Projects.csv'
+          storage_options:
+            org: hoangthienan95
+            repo: cs109b-project-data-package     
+          csv_kwargs: {}
+        metadata: {}
       
       # airpred_clean_test_templating:
       #   driver: csv
