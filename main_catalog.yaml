@@ -26,8 +26,7 @@ shared:
           urlpath: '{{ CATALOG_DIR }}shared/Capital_Projects.csv'
           storage_options:
             org: hoangthienan95
-            repo: cs109b-project-data-package     
-          csv_kwargs: {}
+            repo: cs109b-project-data-package
         metadata: {}
       
       # airpred_clean_test_templating:
