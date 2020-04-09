@@ -27,6 +27,8 @@ shared:
           storage_options:
             org: hoangthienan95
             repo: cs109b-project-data-package
+          csv_kwargs:
+            parse_dates: ["Date Reported As Of", "Design Start", "Forecast Completion"]
         metadata: {}
       
       # airpred_clean_test_templating:
