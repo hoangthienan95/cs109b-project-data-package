@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="intake_cs109b_data_mma",
-    version="0.0.4",
+    version="0.0.5",
     description="Data for cs109b group project, Spring2020",
     py_modules=["intake_cs109b_data_mma"],
     packages=find_packages(),
